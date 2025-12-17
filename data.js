@@ -1,4 +1,4 @@
-const articoli = [
+const Articles = [
     {
         id:1,
         path:"/images/ciambellone.jpg",
@@ -35,4 +35,4 @@ const articoli = [
         ingredienti: ["torta","paesino di montagna","sagra del carciofo"]
     }
 ]
-export {articoli}
+export {Articles} ; 
