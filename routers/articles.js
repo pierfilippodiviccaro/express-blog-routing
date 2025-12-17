@@ -14,12 +14,12 @@ router.get("/",(req,res)=>{
 //show
 router.get("/:id", (req, res)=>{
     const id =parseInt(req.params.id)
-    if(id === Articles.id){
-        const resp = Articles.find(Article => Article.id === id)
-    res.json (resp)
+    const Articolo = Articles.find(Article =>Article.id === id)
+    if(!Articolo){
+        return res.status(404).send("articolo non trovato")
     }
     else{
-        res.json("non ci sono articoli con questo tipo di id")
+        res.json(Articolo)
     }
     })
     //Store
