@@ -39,10 +39,17 @@ router.patch("/:id",(req,res)=>{
     res.send("modifico l'articolo umero"+id)
 })
 //destroy
-router.delete("/:id",(req,res)=>{
-    const id = req.params.id
-    res.send("elimino l'articolo numero"+id)
-    res.json(Articles)
+router.delete("/:id", (req, res) => {
+    const id = parseInt(req.params.id)
+    const index = Articles.findIndex(art => art.id === id)
+    
+    if (index === -1) {
+        return res.status(404).json({ error: "Articolo non trovato" })
+    }
+    
+    Articles.splice(index, 1)  
+    console.log("Lista aggiornata:", Articles)  
+    
+    res.status(204).send() 
 })
-
 export default router
