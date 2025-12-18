@@ -24,7 +24,7 @@ router.get("/:id", (req, res)=>{
     })
     //Store
 router.post("/", (req,res)=>{
-    res.send("creo un nuovo articolo")
+    res.json("creo un nuovo articolo")
 })
 
 //update
@@ -42,6 +42,7 @@ router.patch("/:id",(req,res)=>{
 router.delete("/:id",(req,res)=>{
     const id = req.params.id
     res.send("elimino l'articolo numero"+id)
+    res.json(Articles)
 })
 
 export default router
